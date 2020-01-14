@@ -5,11 +5,11 @@ class ProjectTask(models.Model):
 	_inherit = 'project.task'
 	_order = 'computed_priority desc, sequence, date_start, name, id'
 	@api.multi
-	@api.depends('ease', 'value', 'urgency')
+	@api.depends('effort', 'value', 'urgency')
 	def _get_priority(self):
 		for rec in self:
-			rec.computed_priority = rec.ease * rec.value + rec.urgency
-	ease = fields.Selection(string="Ease", default=0, selection=[(0, 'Low'), (1, 'Medium'), (2, 'High'), (3, 'Very High')])
-	value = fields.Selection(string="Value", default=0, selection=[(0, 'Low'), (1, 'Medium'), (2, 'High'), (3, 'Very High')])
-	urgency = fields.Selection(string="Urgency", default=0, selection=[(0, 'Low'), (1, 'Medium'), (2, 'High'), (3, 'Very High')])
+			rec.computed_priority = rec.value + rec.urgency + 4 - rec.effort
+	effort = fields.Selection(string="Effort", help="Amount of effort required to complete the task.", default=1, selection=[(1, 'Low'), (2, 'Medium'), (3, 'High'), (4, 'Very High')])
+	value = fields.Selection(string="Value", help="Amount of value that this task produces on the client.", default=1, selection=[(1, 'Low'), (2, 'Medium'), (3, 'High'), (4, 'Very High')])
+	urgency = fields.Selection(string="Urgency", help="Level of urgency for this task.", default=1, selection=[(1, 'Low'), (2, 'Medium'), (3, 'High'), (4, 'Very High')])
 	computed_priority = fields.Float(string="Computed Priority", compute="_get_priority", store=True)
