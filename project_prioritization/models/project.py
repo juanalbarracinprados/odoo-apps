@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
-import logging
 class ProjectTask(models.Model):
 	_inherit = 'project.task'
 	_order = 'computed_priority desc, sequence, date_start, name, id'
