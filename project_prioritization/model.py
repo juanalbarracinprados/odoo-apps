@@ -4,7 +4,6 @@ import logging
 class ProjectTask(models.Model):
 	_inherit = 'project.task'
 	_order = 'computed_priority desc, sequence, date_start, name, id'
-	@api.multi
 	@api.depends('effort', 'value', 'urgency')
 	def _get_priority(self):
 		for rec in self:
