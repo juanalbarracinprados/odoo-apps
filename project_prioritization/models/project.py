@@ -2,7 +2,7 @@
 from odoo import models, fields, api
 class ProjectTask(models.Model):
 	_inherit = 'project.task'
-	_order = 'computed_priority desc, sequence, date_start, name, id'
+	_order = 'computed_priority desc, sequence, write_date, name, id'
 	effort = fields.Selection(string="Effort", help="Amount of effort required to complete the task.", default='1', selection=[('1', 'Low'), ('2', 'Medium'), ('3', 'High'), ('4', 'Very High')])
 	value = fields.Selection(string="Value", help="Amount of value that this task produces on the client.", default='1', selection=[('1', 'Low'), ('2', 'Medium'), ('3', 'High'), ('4', 'Very High')])
 	urgency = fields.Selection(string="Urgency", help="Level of urgency for this task.", default='1', selection=[('1', 'Low'), ('2', 'Medium'), ('3', 'High'), ('4', 'Very High')])
