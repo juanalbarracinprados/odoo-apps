@@ -22,7 +22,7 @@
         rating effort, value and urgency quickly in kanban or form view. 
         After rating them, they are sorted in every view by the computed 
         priority based on this rating.""",
-    'author': 'Juan Albarracin Prados',
+    'author': 'Juan Albarracin Prados <juan.albarracin@prokom.es>',
     'company': 'PROKOM',
     'website': "https://prokom.es",
     'category': 'Project',
