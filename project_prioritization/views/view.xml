@@ -9,7 +9,7 @@
                 <xpath expr="//field[@name='project_id']" position="before">
                     <field name="urgency" widget="priority"/>
                     <field name="value" widget="priority" />
-                    <field name="ease" widget="priority" />
+                    <field name="effort" widget="priority" />
                 </xpath>
             </field>
         </record>
@@ -32,7 +32,7 @@
                 <xpath expr="//kanban/field[@name='priority']" position="after">
                     <field name="urgency"/>
                     <field name="value"/>
-                    <field name="ease"/>
+                    <field name="effort"/>
                 </xpath>
 
                 <div class="o_kanban_record_bottom" position="after">
@@ -55,11 +55,11 @@
                     </div>
                     <div class="o_kanban_record_bottom">
                         <div class="oe_kanban_bottom_left">
-                            Ease: 
+                            effort: 
                         </div>
 
                         <div class="oe_kanban_bottom_right">
-                            <field name="ease" widget="priority" />
+                            <field name="effort" widget="priority" />
                         </div>
                     </div>
                 </div>
